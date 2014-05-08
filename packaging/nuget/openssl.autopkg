@@ -1,0 +1,68 @@
+nuget{
+nuspec {
+        id = openssl;
+        version : 1.0.1.700;
+        title: openssl;
+        authors: {The OpenSSL Project, Eric A. Young and Tim J. Hudson};
+        owners: {Eric Voskuil};
+		licenseUrl: "https://raw.github.com/openssl/openssl/master/LICENSE";
+	    projectUrl: "http://www.openssl.org";
+        iconUrl: "http://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/EFF_version_of_NSA_logo.jpg/200px-EFF_version_of_NSA_logo.jpg";
+		requireLicenseAcceptance: true;
+		description: "The OpenSSL Project is a commercial-grade, full-featured, and Open Source toolkit implementing the Secure Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) protocols as well as a full-strength general purpose cryptography library.";
+        summary: "This is OpenSSL 1.0.1g, unmodified, in the default build configuration. Supports Visual Studio 2013 (v120) compiler." ;
+        releaseNotes: "https://raw.github.com/openssl/openssl/master/NEWS";
+        copyright: "The OpenSSL Project and Eric Young";
+        tags: { native, openssl, crypto, ssl, tls, hash, cipher, ecdsa, RSA, C++ };
+    };
+dependencies {
+        // This node defines any outside items which may be needed to consume this package.
+        packages : {
+            // This is a list of other NuGet packages required to use this package.
+            // Each item follows the format "<pkg_name>/<version>"
+        };
+    }
+files {
+	include: { "..\..\inc32\openssl\*.*" };
+	[Win32,v110,debug,dynamic] 
+	{
+        lib: { ..\..\out32dll.dbg\ssleay32.lib; ..\..\out32dll.dbg\libeay32.lib };
+		bin: { ..\..\out32dll.dbg\ssleay32.dll; ..\..\out32dll.dbg\libeay32.dll };
+		symbols: { ..\..\out32dll.dbg\ssleay32.pdb; ..\..\out32dll.dbg\libeay32.pdb };
+    }
+	[Win32,v110,release,dynamic] 
+	{
+        lib: { ..\..\out32dll\ssleay32.lib; ..\..\out32dll\libeay32.lib };
+		bin: { ..\..\out32dll\ssleay32.dll; ..\..\out32dll\libeay32.dll };
+		symbols: { ..\..\out32dll\ssleay32.pdb; ..\..\out32dll\libeay32.pdb };
+    }
+	[Win32,v110,debug,static] 
+	{
+        lib: { ..\..\out32.dbg\ssleay32.lib; ..\..\out32.dbg\libeay32.lib };
+    }
+	[Win32,v110,release,static] 
+	{
+        lib: { ..\..\out32\ssleay32.lib; ..\..\out32\libeay32.lib };
+    }
+	[x64,v110,debug,dynamic] 
+	{
+        lib: { ..\..\out64dll.dbg\ssleay32.lib; ..\..\out64dll.dbg\libeay32.lib };
+		bin: { ..\..\out64dll.dbg\ssleay32.dll; ..\..\out64dll.dbg\libeay32.dll };
+		symbols: { ..\..\out64dll.dbg\ssleay32.pdb; ..\..\out64dll.dbg\libeay32.pdb };
+    }
+	[x64,v110,release,dynamic] 
+	{
+        lib: { ..\..\out64dll\ssleay32.lib; ..\..\out64dll\libeay32.lib };
+		bin: { ..\..\out64dll\ssleay32.dll; ..\..\out64dll\libeay32.dll };
+		symbols: { ..\..\out64dll\ssleay32.pdb; ..\..\out64dll\libeay32.pdb };
+    }
+	[x64,v110,debug,static] 
+	{
+        lib: { ..\..\out64.dbg\ssleay32.lib; ..\..\out64.dbg\libeay32.lib };
+	}
+	[x64,v110,release,static] 
+	{
+        lib: { ..\..\out64\ssleay32.lib; ..\..\out64\libeay32.lib };
+    }	
+    }
+}
