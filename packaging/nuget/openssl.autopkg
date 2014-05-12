@@ -1,10 +1,10 @@
 nuget{
 nuspec {
-        id = openssl;
+        id = openssl-package;
         version : 1.0.1.700;
         title: openssl;
         authors: {The OpenSSL Project, Eric A. Young and Tim J. Hudson};
-        owners: {Eric Voskuil};
+        owners: {Hennadii Zabula};
 		licenseUrl: "https://raw.github.com/openssl/openssl/master/LICENSE";
 	    projectUrl: "http://www.openssl.org";
         iconUrl: "http://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/EFF_version_of_NSA_logo.jpg/200px-EFF_version_of_NSA_logo.jpg";
@@ -23,7 +23,11 @@ dependencies {
         };
     }
 files {
-	include: { "..\..\inc32\openssl\*.*" };
+	nestedInclude: 
+	{
+            #destination = ${d_include}openssl;
+             "..\..\inc32\**\*.*"
+    };
 	[Win32,v110,debug,dynamic] 
 	{
         lib: { ..\..\out32dll.dbg\ssleay32.lib; ..\..\out32dll.dbg\libeay32.lib };
